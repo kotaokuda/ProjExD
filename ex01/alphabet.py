@@ -25,7 +25,6 @@ for i in range(10):
     print(que_pri)
     print(" ")
     ans_num = input("欠損文字はいくつあるでしょうか:")
-    
     if ans_num == "2":
         print("正解です。それでは、具体的に欠損文字を1つずつ入力してください")
     else:
