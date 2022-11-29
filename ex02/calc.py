@@ -15,7 +15,9 @@ def button_click(event):        #キーが押されたときの関数
     num = btn["text"]
     #tkm.showinfo("", f"{num}ボタンがクリックされました")
 
-    if (num != "="):
+    if (num == "C"):            #表示を消す
+        entry.delete(0, tk.END)
+    elif (num != "="):
         entry.insert(tk.END, f"{num}")
     else:
         keisan = entry.get()
@@ -24,11 +26,12 @@ def button_click(event):        #キーが押されたときの関数
 root = tk.Tk()
 root.geometry("300x500")
 
-entry = tk.Entry(root, justify= "right", width=10, font = ("", 40))
-entry.grid(row = 0, column = 0, columnspan = 3)
+entry = tk.Entry(root, justify= "right", width=10, font = ("", 30))
+entry.grid(row = 0, column = 0, columnspan = 2)
 
 r, c = 1, 0
 
+#数字ボタン作成
 for num in range(9, -1, -1):
 
     #数字の場所入れ替え
@@ -47,11 +50,19 @@ for num in range(9, -1, -1):
         r += 1
         c = 0
 
+#+ボタン作成
 button = tk.Button(root, text = "+", width = 4, height = 2, font = ("", 30))
 button.grid(row = r, column = 1)
 button.bind("<1>", button_click)
+
+#=ボタン作成
 button = tk.Button(root, text = "=", width = 4, height = 2, font = ("", 30))
 button.grid(row = r, column = 2)
 button.bind("<1>", button_click)
+
+#clearボタン作成
+buttn = tk.Button(root, text = "C", width = 4, height = 1, font = ("", 30))
+buttn.grid(row = 0, column = 2)
+buttn.bind("<1>", button_click)
 
 root.mainloop()
