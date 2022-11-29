@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.messagebox as tkm
 
 rireki = 0
+sisoku = ["+", "-", "*", "/"]
 
 def math(siki):                 #計算結果を出力する関数
     global rireki
