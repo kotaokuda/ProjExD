@@ -58,7 +58,7 @@ for num in range(9, -1, -1):
         r += 1
         c = 0
 
-#四則演算符号ボタン
+#四則演算の符号ボタン
 sisoku = ["+", "=", "-", "*", "/"]
 
 for kei in sisoku:
