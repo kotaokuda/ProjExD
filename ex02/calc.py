@@ -2,7 +2,6 @@ import tkinter as tk
 import tkinter.messagebox as tkm
 
 rireki = 0
-sisoku = ["+", "-", "*", "/"]
 
 def math(siki):                 #計算結果を出力する関数
     global rireki
@@ -59,39 +58,26 @@ for num in range(9, -1, -1):
         r += 1
         c = 0
 
-#+ボタン作成
-button = tk.Button(root, text = "+", width = 4, height = 2, font = ("", 30))
-button.grid(row = r, column = 1)
-button.bind("<1>", button_click)
+#四則演算符号ボタン
+sisoku = ["+", "=", "-", "*", "/"]
 
-#-ボタン作成
-button = tk.Button(root, text = "-", width = 4, height = 2, font = ("", 30))
-button.grid(row = r + 1, column = 0)
-button.bind("<1>", button_click)
+for kei in sisoku:
+    button = tk.Button(root, text = f"{kei}", width = 4, height = 2, font = ("", 30))
+    button.grid(row = r, column = c)
+    button.bind("<1>", button_click)
+    c += 1
+    if c % 3 == 0:
+        r += 1
+        c = 0
 
-#*ボタン作成
-button = tk.Button(root, text = "*", width = 4, height = 2, font = ("", 30))
-button.grid(row = r + 1, column = 1)
-button.bind("<1>", button_click)
+#四則演算以外のボタン作成
+tokusyu = ["C", "履歴"]
+tokusyu_row = 0
 
-#/ボタン作成
-button = tk.Button(root, text = "/", width = 4, height = 2, font = ("", 30))
-button.grid(row = r + 1, column = 2)
-button.bind("<1>", button_click)
-
-#=ボタン作成
-button = tk.Button(root, text = "=", width = 4, height = 2, font = ("", 30))
-button.grid(row = r, column = 2)
-button.bind("<1>", button_click)
-
-#clearボタン作成
-button = tk.Button(root, text = "C", width = 4, height = 1, font = ("", 30))
-button.grid(row = 0, column = 2)
-button.bind("<1>", button_click)
-
-#履歴ボタン作成
-button = tk.Button(root, text = "履歴", width = 4, height = 1, font = ("", 30))
-button.grid(row = 1, column = 2)
-button.bind("<1>", button_click)
+for toku in tokusyu:
+    button = tk.Button(root, text = f"{toku}", width = 4, height = 1, font = ("", 30))
+    button.grid(row = tokusyu_row, column = 2)
+    button.bind("<1>", button_click)
+    tokusyu_row += 1
 
 root.mainloop()
