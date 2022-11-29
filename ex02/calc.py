@@ -1,11 +1,23 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
 
+def math(siki):
+    entry.delete(0, tk.END)
+    if(type(eval(siki)) is int):
+        entry.insert(tk.END, str(eval(siki)))
+    else:
+        entry.insert(tk.END, "エラー")
+
 def button_click(event):
     btn = event.widget
     num = btn["text"]
     #tkm.showinfo("", f"{num}ボタンがクリックされました")
-    entry.insert(tk.END, f"{num}")
+
+    if (num != "="):
+        entry.insert(tk.END, f"{num}")
+    else:
+        keisan = entry.get()
+        math(keisan)
 
 root = tk.Tk()
 root.geometry("300x500")
@@ -29,5 +41,6 @@ button.grid(row = r, column = 1)
 button.bind("<1>", button_click)
 button = tk.Button(root, text = "=", width = 4, height = 2, font = ("", 30))
 button.grid(row = r, column = 2)
+button.bind("<1>", button_click)
 
 root.mainloop()
