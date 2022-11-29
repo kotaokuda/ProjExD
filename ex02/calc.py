@@ -32,7 +32,7 @@ def button_click(event):        #キーが押されたときの関数
         
 
 root = tk.Tk()
-root.geometry("300x575")
+root.geometry("300x690")
 
 entry = tk.Entry(root, justify= "right", width=10, font = ("", 30))
 entry.grid(row = 0, column = 0, columnspan = 2, rowspan = 2)
@@ -61,6 +61,21 @@ for num in range(9, -1, -1):
 #+ボタン作成
 button = tk.Button(root, text = "+", width = 4, height = 2, font = ("", 30))
 button.grid(row = r, column = 1)
+button.bind("<1>", button_click)
+
+#-ボタン作成
+button = tk.Button(root, text = "-", width = 4, height = 2, font = ("", 30))
+button.grid(row = r + 1, column = 0)
+button.bind("<1>", button_click)
+
+#*ボタン作成
+button = tk.Button(root, text = "*", width = 4, height = 2, font = ("", 30))
+button.grid(row = r + 1, column = 1)
+button.bind("<1>", button_click)
+
+#/ボタン作成
+button = tk.Button(root, text = "/", width = 4, height = 2, font = ("", 30))
+button.grid(row = r + 1, column = 2)
 button.bind("<1>", button_click)
 
 #=ボタン作成
