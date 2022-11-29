@@ -13,6 +13,10 @@ def math(siki):                 #計算結果を出力する関数
         entry.insert(tk.END, str(eval(siki)))
         rireki = eval(siki)     #履歴のために結果をを保持
     except NameError:
+        entry.insert(tk.END, "エラー 文字列です")
+    except ZeroDivisionError:
+        entry.insert(tk.END, "エラー 0では割れません")
+    except:
         entry.insert(tk.END, "エラー")
 
 def button_click(event):        #キーが押されたときの関数
