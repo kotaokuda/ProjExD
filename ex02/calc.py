@@ -23,4 +23,10 @@ for num in range(9, -1, -1):
         r += 1
         c = 0
 
+button = tk.Button(root, text = "+", width = 4, height = 2, font = ("", 30))
+button.grid(row = r, column = 1)
+button.bind("<1>", button_click)
+button = tk.Button(root, text = "=", width = 4, height = 2, font = ("", 30))
+button.grid(row = r, column = 2)
+
 root.mainloop()
