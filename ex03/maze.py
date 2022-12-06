@@ -27,8 +27,9 @@ if __name__ == "__main__":
     root.title("迷えるこうかとん")
     canvas = tk.Canvas(root, width = 1500, height = 900, bg = "black")
     canvas.pack()
-    
-    maze_list = maze_maker.make_maze(15, 9)    
+
+    maze_list = maze_maker.make_maze(15, 9)
+    maze_maker.show_maze(canvas, maze_list)    
 
     key = ""
 
