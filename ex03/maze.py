@@ -11,13 +11,13 @@ def key_up(event):
 
 def main_proc():
     global cx, cy, mx, my
-    if key == "Up":
+    if key == "Up" and maze_list[mx][my - 1] == 0:      #上が入力されかつ、移動先が道なら
         my -= 1
-    if key == "Down":
+    if key == "Down" and maze_list[mx][my + 1] == 0:        #下が入力されかつ、移動先が道なら
         my += 1
-    if key == "Left":
+    if key == "Left" and maze_list[mx - 1][my] == 0:        #左が入力されかつ、移動先が道なら
         mx -= 1
-    if key == "Right":
+    if key == "Right" and maze_list[mx + 1][my] == 0:       #右が入力され、移動先が道なら
         mx += 1
     cx, cy = mx * 100 + 50, my * 100 + 50
     canvas.coords("kokaton", cx, cy)
