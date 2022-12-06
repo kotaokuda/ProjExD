@@ -58,14 +58,17 @@ if __name__ == "__main__":
     maze_list = maze_maker.make_maze(15, 9)
     maze_maker.show_maze(canvas, maze_list)
 
+    #画像関連
     kokaton = tk.PhotoImage(file = "fig/0.png")
     mx, my = 1, 1
     cx, cy = mx * 100 + 50, my * 100 + 50
     canvas.create_image(cx, cy, image = kokaton, tag = "kokaton")
 
+    #キー入力関連
     key = ""
     root.bind("<KeyPress>", key_down)
     root.bind("<KeyRelease>", key_up)
+
     main_proc()
     
 
