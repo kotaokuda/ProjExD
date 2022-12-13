@@ -42,9 +42,10 @@ def main():
         if key_dct[pg.K_RIGHT]:
             tori_rct.centerx += 1
 
-        
-
         scrn_sfc.blit(tori_sfc, tori_rct)
+
+        vx, vy = +1, +1
+        bomb_rct.move_ip(vx, vy)
 
         scrn_sfc.blit(bomb_sfc, bomb_rct)
 
