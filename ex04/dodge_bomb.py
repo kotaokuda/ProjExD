@@ -1,15 +1,6 @@
 import pygame as pg
 import sys
 import random
-<<<<<<< HEAD
-
-ENEMY_MAX = 100
-emy_no = 0
-emy_f = [False] * ENEMY_MAX
-emy_x = [0] * ENEMY_MAX
-emy_y = [0] * ENEMY_MAX
-emy_a = [0] * ENEMY_MAX
-=======
 import math
 
 #爆弾の最大数
@@ -26,7 +17,6 @@ emy_y = [0] * ENEMY_MAX
 emy_a = [0] * ENEMY_MAX
 #爆弾のスピードを管理するリストをENEMY_MAXの要素数で0で初期化する
 emy_speed = [0] * ENEMY_MAX
->>>>>>> add_func
 
 def check_bound(obj_rct, scr_rct):
     #第1引数:こうかとんrectまたは爆弾rect
@@ -39,18 +29,6 @@ def check_bound(obj_rct, scr_rct):
         tate = -1
     return yoko, tate
 
-<<<<<<< HEAD
-def set_enemy(x, y, a):
-    global emy_no
-    while True:
-        if emy_f[emy_no] == False:
-            emy_f[emy_no] = True
-            emy_x[emy_no] = x
-            emy_y[emy_no] = y
-            emy_a[emy_no] = a
-            break
-    emy_no = (emy_no + 1) % ENEMY_MAX
-=======
 #爆弾を定義する
 def set_enemy(x, y, a, sp):
     #xが爆弾のx座標、yが爆弾のy座標、aが爆弾の角度、spが爆弾のスピード
@@ -74,19 +52,15 @@ def set_enemy(x, y, a, sp):
             break
         #爆弾の番号を次の値に設定する
         emy_no = (emy_no + 1) % ENEMY_MAX
->>>>>>> add_func
 
 def main():
     clock = pg.time.Clock()
 
-<<<<<<< HEAD
-=======
     #フレーム数をカウントする変数を0で初期化する
     time = 0
     #mainを抜けるための変数を0で初期化する
     j = 0
 
->>>>>>> add_func
     pg.display.set_caption("逃げろ!こうかとん")
     scrn_sfc = pg.display.set_mode((1600, 900))
     scrn_rct = scrn_sfc.get_rect()
@@ -103,19 +77,10 @@ def main():
     bomb_sfc.set_colorkey((0, 0, 0))
     pg.draw.circle(bomb_sfc, (255, 0, 0), (10, 10), 10)
     bomb_rct = bomb_sfc.get_rect()
-<<<<<<< HEAD
-    bomb_rct.centerx = random.randint(0, scrn_rct.width - 10)
-    bomb_rct.centery = random.randint(0, scrn_rct.height - 10)
-    scrn_sfc.blit(bomb_sfc, bomb_rct)
-    vx, vy = +1, +1
-
-    keyys = {pg.K_UP:-1, pg.K_DOWN:+1}
-=======
     #bomb_rct.centerx = random.randint(0, scrn_rct.width - 10)
     #bomb_rct.centery = random.randint(0, scrn_rct.height - 10)
     scrn_sfc.blit(bomb_sfc, bomb_rct)
     #vx, vy = +1, +1
->>>>>>> add_func
 
     while True:
         scrn_sfc.blit(pgbg_sfc, pgbg_rct)
@@ -146,16 +111,6 @@ def main():
 
         scrn_sfc.blit(tori_sfc, tori_rct)
 
-<<<<<<< HEAD
-        yoko , tate = check_bound(bomb_rct, scrn_rct)
-        vx *= yoko
-        vy *= tate
-        bomb_rct.move_ip(vx, vy)
-        scrn_sfc.blit(bomb_sfc, bomb_rct)
-
-        if tori_rct.colliderect(bomb_rct):
-            return
-=======
         #yoko , tate = check_bound(bomb_rct, scrn_rct)
         #vx *= yoko
         #vy *= tate
@@ -196,7 +151,6 @@ def main():
             break
 
         #scrn_sfc.blit(bomb_sfc, bomb_rct)
->>>>>>> add_func
 
         pg.display.update()
         clock.tick(1000)
