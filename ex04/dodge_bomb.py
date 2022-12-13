@@ -56,9 +56,6 @@ def set_enemy(x, y, a, sp):
 def main():
     clock = pg.time.Clock()
 
-    #フレーム数をカウントする変数を0で初期化する
-    time = 0
-
     pg.display.set_caption("逃げろ!こうかとん")
     scrn_sfc = pg.display.set_mode((1600, 900))
     scrn_rct = scrn_sfc.get_rect()
@@ -115,15 +112,12 @@ def main():
         #bomb_rct.move_ip(vx, vy)
 
         #500フレーム経過したら、爆弾を出す
-        if time == 500:
+        if pg.time.get_ticks() % 500 == 0:
             #フレーム数をカウントする変数を0に戻す
             time = 0
             #5回爆弾を定義する
             for i in range(5):
                 set_enemy(800, 0, random.randint(60, 120), 1)
-        
-        #フレーム数をカウントする変数に1を足す
-        time += 1
 
         #爆弾の処理を行う
         for i in range(ENEMY_MAX):
