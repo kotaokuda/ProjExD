@@ -111,7 +111,7 @@ def main():
         #vy *= tate
         #bomb_rct.move_ip(vx, vy)
 
-        #500フレーム経過したら、爆弾を出す
+        #500フレーム経過したとき、爆弾を出す
         if pg.time.get_ticks() % 500 == 0:
             #フレーム数をカウントする変数を0に戻す
             time = 0
