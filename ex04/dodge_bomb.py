@@ -2,6 +2,13 @@ import pygame as pg
 import sys
 import random
 
+ENEMY_MAX = 100
+emy_no = 0
+emy_f = [False] * ENEMY_MAX
+emy_x = [0] * ENEMY_MAX
+emy_y = [0] * ENEMY_MAX
+emy_a = [0] * ENEMY_MAX
+
 def check_bound(obj_rct, scr_rct):
     #第1引数:こうかとんrectまたは爆弾rect
     #第2引数:スクリーンrect
@@ -12,6 +19,17 @@ def check_bound(obj_rct, scr_rct):
     if obj_rct.top < scr_rct.top or scr_rct.bottom < obj_rct.bottom:
         tate = -1
     return yoko, tate
+
+def set_enemy(x, y, a):
+    global emy_no
+    while True:
+        if emy_f[emy_no] == False:
+            emy_f[emy_no] = True
+            emy_x[emy_no] = x
+            emy_y[emy_no] = y
+            emy_a[emy_no] = a
+            break
+    emy_no = (emy_no + 1) % ENEMY_MAX
 
 def main():
     clock = pg.time.Clock()
@@ -37,14 +55,17 @@ def main():
     scrn_sfc.blit(bomb_sfc, bomb_rct)
     vx, vy = +1, +1
 
+    keyys = {pg.K_UP:-1, pg.K_DOWN:+1}
+
     while True:
         scrn_sfc.blit(pgbg_sfc, pgbg_rct)
 
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
-        
+    
         key_dct = pg.key.get_pressed()
+
         if key_dct[pg.K_UP]:
             tori_rct.centery -= 1
         if key_dct[pg.K_DOWN]:
