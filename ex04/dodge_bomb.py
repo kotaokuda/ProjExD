@@ -142,8 +142,8 @@ def main():
                     #爆弾の定義を取り消す
                     emy_f[i] = False
             #こうかとんと爆弾の距離が10より近いとき
-            if ((int(tori_rct.centerx) - emy_x[i]) * (int(tori_rct.centerx) - emy_x[i]) \
-                + (int(tori_rct.centery) - emy_y[i]) * (int(tori_rct.centery) - emy_y[i])) < 1000:
+            if ((int(tori_rct.centerx) - emy_x[i]) ** 2 \
+                + (int(tori_rct.centery) - emy_y[i]) ** 2) < 1000:
                 #mainを抜けるためにjを1に変更する
                 j = 1
         
