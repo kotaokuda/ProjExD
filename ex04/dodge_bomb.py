@@ -58,8 +58,6 @@ def main():
 
     #フレーム数をカウントする変数を0で初期化する
     time = 0
-    #mainを抜けるための変数を0で初期化する
-    j = 0
 
     pg.display.set_caption("逃げろ!こうかとん")
     scrn_sfc = pg.display.set_mode((1600, 900))
@@ -144,12 +142,8 @@ def main():
             #こうかとんと爆弾の距離が10より近いとき
             if ((int(tori_rct.centerx) - emy_x[i]) ** 2 \
                 + (int(tori_rct.centery) - emy_y[i]) ** 2) < 1000:
-                #mainを抜けるためにjを1に変更する
-                j = 1
-        
-        #jが1の時、mainを抜ける
-        if j == 1:
-            break
+                #mainを抜ける
+                return
 
         #scrn_sfc.blit(bomb_sfc, bomb_rct)
 
