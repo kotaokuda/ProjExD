@@ -98,6 +98,7 @@ class EnemyShot:
     def blit(self, scr:Screen):
         scr.sfc.blit(self.sfc, self.rct)
     
+    #場所の更新を行う
     def update(self, scr:Screen):
         #self.x(x座標)の位置を更新する
         self.x = self.x + self.vx
