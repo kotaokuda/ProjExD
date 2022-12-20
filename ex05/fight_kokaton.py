@@ -108,7 +108,6 @@ class EnemyShot:
         scr.sfc.blit(self.sfc, [self.x, self.y])
             
 
-
 def check_bound(obj_rct, scr_rct):
     """
     第1引数：こうかとんrectまたは爆弾rect
