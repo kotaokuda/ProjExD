@@ -125,7 +125,7 @@ def check_bound(obj_rct, scr_rct):
 
 
 def main():
-    clock =pg.time.Clock()
+    clock = pg.time.Clock()
 
     #弾を管理する番号を0で初期化する
     emy_no = 0
