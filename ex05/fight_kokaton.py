@@ -5,6 +5,7 @@ import sys
 import pygame as pg
 
 
+#敵の弾の最大数
 ENEMY_MAX = 100
 
 
