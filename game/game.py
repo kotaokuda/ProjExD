@@ -55,19 +55,19 @@ def main():
                 return
             if event.type == pg.KEYDOWN:        #キーが押されたとき
                 if event.key == pg.K_SPACE:     #押されたキーがスペースのとき
-                    index = 2       #indexを2にする
+                    index = 2                   #indexを2にする
         
-        if index == 1:      #indexが1の時
+        if index == 1:                  #indexが1の時
             kkt.rct.centery += 1        #自機のy座標に1を足す
-        elif index == 2:    #indexが2の時
+        elif index == 2:                #indexが2の時
             kkt.rct.centery -= 1        #自機のy座標から1を引く
-            count += 1      #countに1を足す
-            if count == 100:        #countが100の時
-                count = 0       #countを0にする
-                index = 1       #indexを1にする
+            count += 1                  #countに1を足す
+            if count == 100:            #countが100の時
+                count = 0               #countを0にする
+                index = 1               #indexを1にする
 
         if check_bound(kkt.rct, scr.rct) != +1:     #画面外に自機が出ていないか確認する関数を呼び出し、外に出ていたならば
-            index = 0       #indexを0にする
+            index = 0                               #indexを0にする
 
         kkt.update(scr)
 
