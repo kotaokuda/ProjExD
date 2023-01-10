@@ -2,7 +2,7 @@ import pygame as pg
 import random
 import sys
 
-index = 1
+index = 1       #進行状態の管理
 
 class Screen:
     def __init__(self, title, wh, img_path):
@@ -36,7 +36,7 @@ def check_bound(obj_rct, scr_rct):
     return tate
 
 def main():
-    global index
+    global index        #indexをグローバル変数で定義する
 
     clock = pg.time.Clock()
 
@@ -45,31 +45,29 @@ def main():
     kkt = Bird("fig/6.png", 2.0, (200, 400))
     kkt.update(scr)
 
-    count = 0
+    count = 0       #ジャンプ時間を管理する変数
 
-    while index:
+    while index:        #indexが正ならループ
         scr.blit()
 
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
-            if event.type == pg.KEYDOWN:
-                if event.key == pg.K_SPACE:
-                    index = 2
-                    #kkt.rct.centery -= 100
-                    if check_bound(kkt.rct, scr.rct) != +1:  
-                        index = 0
+            if event.type == pg.KEYDOWN:        #キーが押されたとき
+                if event.key == pg.K_SPACE:     #押されたキーがスペースのとき
+                    index = 2       #indexを2にする
         
-        if index == 1:
-            kkt.rct.centery += 1
-        elif index == 2:
-            kkt.rct.centery -= 1
-            count += 1
-            if count == 100:
-                count = 0
-                index = 1
-        if check_bound(kkt.rct, scr.rct) != +1:
-            index = 0
+        if index == 1:      #indexが1の時
+            kkt.rct.centery += 1        #自機のy座標に1を足す
+        elif index == 2:    #indexが2の時
+            kkt.rct.centery -= 1        #自機のy座標から1を引く
+            count += 1      #countに1を足す
+            if count == 100:        #countが100の時
+                count = 0       #countを0にする
+                index = 1       #indexを1にする
+
+        if check_bound(kkt.rct, scr.rct) != +1:     #画面外に自機が出ていないか確認する関数を呼び出し、外に出ていたならば
+            index = 0       #indexを0にする
 
         kkt.update(scr)
 
